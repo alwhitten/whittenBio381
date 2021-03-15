@@ -1,0 +1,19 @@
+---
+title: "Homework3"
+author: "AWhitten"
+date: "3/15/2021"
+output: html_document
+---
+Used regex~<101>~ to do homework instead of Notepad++ because it highlights words and spaces as you go.
+
+1. Remove spaces from within rows
+```
+Find:\h+
+Replace: ,
+```
+
+2. Switch names to first name, last name (institution) # () did not work
+```
+Find: (\w+),\s(\w+),\s(\w*.*)
+Replace: \2 \1 (\3)
+```
