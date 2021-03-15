@@ -1,5 +1,5 @@
 ---
-title: "Homework_02"
+title: "Computational Biology"
 author: "AWhitten"
 date: "3/2/2021"
 output: html_document
