@@ -1,10 +1,13 @@
 ---
-title: "Homework3"
+title: "Homework 3 Answers"
 author: "AWhitten"
 date: "3/15/2021"
 output: html_document
 ---
-Used regex~<101>~ to do homework instead of Notepad++ because it highlights words and spaces as you go.
+
+### Used regex~<101>~ to hep do homework with Notepad++ because it highlights words and spaces as you go. Make sure that "regular expression" is the only thing toggled on in the search mode box in Notepad++.
+
+## Questions
 
 1. Remove spaces from within rows
 ```
@@ -12,8 +15,40 @@ Find:\h+
 Replace: ,
 ```
 
-2. Switch names to first name, last name (institution) # () did not work
+
+2. Switch names to first name, last name (institution) 
 ```
 Find: (\w+),\s(\w+),\s(\w*.*)
-Replace: \2 \1 (\3)
+Replace: \2 \1 \(\3\)
+```
+
+
+3. Write a regular expression to place all song names on their own line.
+```
+Find: (\d) #found space with a number after it
+Replace:\r\1 #placed a line break before the numbers 
+```
+
+4. Write a regular expression to place the song number after the name.
+```
+Find:(\d{4})\s(.*)(\.\w+)
+Replace:\2_\1\3
+```
+
+5. Write a regular expression to have the it read as a letter for the genus_speciesname,last number.
+```
+Find:(\w)\w+,(\w+),.*,(\w+)
+Replace:\1_\2,\3
+```
+
+6. Write an expression so it reads with the first letter of the genus_four letters of species,last number.
+```
+Find:(\w)\w+,(\w{4})\w+,.*,(\w+)
+Replace:\1_\2,\3
+```
+
+7. Write an expression so the first three letters of the genus and species are together, last number, first number.
+```
+Find:(\w{3})\w+,(\w{3})\w+,(.*),(\w+)
+Replace:\1\2, \4, \3
 ```
