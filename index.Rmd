@@ -1,18 +1,22 @@
 ---
-title: "Computational Biology"
-author: "AWhitten"
-date: "3/2/2021"
-output: html_document
+title: "Computational Biology Homepage"
+author: "A Whitten"
+date: ""
+output: 
+  prettydoc::html_pretty: 
+    theme: architect
 ---
+![](myimage.jpg)
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
-My dog, Macy, was elected employee of the month at the office.
+*****
 
-Homework Week 1
+# Homework Assignments 
 
-Homework Week 2
+Homework Week 1 *Nothing Due*
+
+[Homework Week 2](Homework2.html)
 
 [Homework Week 3](Homework3.html)
+
+Homework Week 4
