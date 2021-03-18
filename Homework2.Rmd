@@ -1,0 +1,8 @@
+---
+title: "Homework 2"
+author: "AWhitten"
+date: "3/18/2021"
+output: html_document
+---
+
+My dog, Macy, was elected employee of the month at the office.
