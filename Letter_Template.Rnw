@@ -1,0 +1,70 @@
+\documentclass[10pt]{article} % change font size here
+
+%--------------------------------------
+\usepackage{hyphenat} % use to disable hyphenation
+\usepackage[margin=1.0in,top=0.25in]{geometry} % adjust margins
+\usepackage{lipsum} % Just for this example
+
+%--------------------------------------
+% \renewcommand{\familydefault}{\ttdefault} % use for plain text
+\setlength{\parindent}{0pt} % No paragraph indent
+\pagestyle{empty} % No page headers/footers
+\setlength{\parskip}{5mm plus 4mm minus 3mm} % for paragraph spacing
+%--------------------------------------
+\begin{document}
+\raggedright % toggle off for flush right margin
+\includegraphics[scale=0.25]{BlockI-Logo-Full-Color-CMYK.jpg}\\ % delete to remove letterhead
+
+%--------------------------------------
+ \hfill\hfill\hfill % to align following text flush right
+ 25 March 2020\\[10pt]  % <-- ADD DATE HERE
+ 
+%--------------------------------------
+\begin{tabular}{l@{}}
+  % A. Whitten \\ 
+  % 704 N. Schrader Rd. \\
+  % Havana, IL 62644 \\
+  % Phone: (309) 543-6000 \\
+  % Email: awhitten@illinois.edu
+\end{tabular}
+
+%--------------------------------------
+\begin{tabular}{@{}l}
+  % date time stamp % use these entries for left flush
+  % \bigskip
+Recipient Name\\
+Address 1\\
+Address 2\\
+Address 3
+\end{tabular}
+%--------------------------------------
+%--------------------------------------
+
+
+Dear X:
+
+\lipsum[1-2]
+
+
+
+% \newpage % use if necessary to adjust spacing for signature block
+
+%--------------------------------------
+%--------------------------------------
+
+\begin{tabular}{@{}l}
+Sincerely yours,\\
+\includegraphics [scale=0.05,width=1in]{mysignature.jpg}\\
+A. Whitten\\
+Large River Fisheries Biologist\\
+Illinois Natural History Survey\\
+Illinois River Biological Station\\
+Havana, IL 62644 USA\\
+309-543-6000\\
+awhitten@illinois.edu\\
+https://illinois-river-bio-station.inhs.illinois.edu/\\
+\end{tabular}
+%--------------------------------------
+
+\end{document}
+
