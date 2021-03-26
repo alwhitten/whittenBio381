@@ -21,4 +21,4 @@ Homework Week 1 *Nothing Due*
 
 Homework Week 4: [Typora](file:///C:/Users/Kris/Documents/Computational%20Biology_R/Homeworks/HW4_Typora_Webpage.html),
 [LaTeX Letter](Letter_Template.pdf), and
-LaTeX Beammer
+[LaTeX Beammer Presentation](BeamerSlideShow.pdf)
