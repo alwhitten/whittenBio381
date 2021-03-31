@@ -1,0 +1,30 @@
+---
+title: "Homework5_Vectors"
+author: "AWhitten"
+date: "3/31/2021"
+output: html_document
+---
+
+# Question One
+## Assign x, a, and b.
+```
+x <- 1.1
+a <- 2.2
+b <- 3.3
+```
+## Part a
+```
+z <- x^a^b
+print(z)
+```
+## Part b
+```
+z <- (x^a)^b
+print(z)
+```
+## Part c
+```
+z<- (3*x^3) + (2*x^2) + (13*x^3) + (2*x^2) + 1
+print(z)
+```
+
