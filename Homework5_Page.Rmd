@@ -1,5 +1,5 @@
 ---
-title: "Homework5_Vectors"
+title: "Homework 5 Vectors"
 author: "AWhitten"
 date: "3/31/2021"
 output: html_document
@@ -47,4 +47,56 @@ vec_three <- c(5,rep(4,2),rep(3,3),rep(2,4),rep(1,5))
 print(vec_three)
 ```
 
-# Question Three
+# Question Three: Create polar coodinates
+```{r}
+vec_four <- runif(2) # generate two random numbers
+print(vec_four)
+
+r <-sqrt(vec_four[1]^2 +vec_four[2]^2) # calculate r
+theta <- atan(vec_four[1]/vec_four[2]) # calculate theta
+polar_cor <- c(r,theta) # create assignment 
+print(polar_cor)
+```
+
+# Question Four: Update line of animals
+```{r}
+queue <- c("sheep", "fox", "owl", "ant")
+queue <-c(queue, "serpent") # add serpent
+print(queue)
+
+queue<-queue[-c(1)] #remove sheep
+print(queue)
+
+queue<-c("donkey",queue) # add donkey to font of line
+print(queue)
+
+queue<-queue[-5] # serpent leaves
+print(queue)
+
+queue<-queue[-3] # owl leaves
+print(queue)
+
+queue<- c(queue[1:2],"aphid", "ant") # aphid enters before ant
+print(queue)
+
+which(queue =="aphid") # determine aphid position
+```
+# Question Five: Create Vectors
+## Vector of integers 1-100 not divisible by 2, 3, or 7
+```{r}
+# not divisible by 2
+z <- 1:100
+z <- z[which(z%%2 != FALSE)]
+print(z)
+
+# not divisible by 3
+z <- z[which(z%%3 != FALSE)]
+print(z)
+
+# not divisible by 7
+z <- z[which(z%%7 != FALSE)]
+
+# final list
+print(z)
+```
+
