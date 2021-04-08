@@ -1,0 +1,43 @@
+---
+title: "Homework 6"
+author: "AWhitten"
+date: "4/8/2021"
+output: html_document
+---
+#  Question One
+```{r,eval=FALSE}
+# Vector of a single integer between 3 and 10
+n_dims<-runif(1,min=3,max=10)
+print(n_dims)
+# vector from 1 to n_dims
+vec_1<-1:n_dims^2
+print(vec_1)
+# randomly reshuffle values
+sample(vec_1)
+# create matrix
+mat_1<-matrix(vec_1,nrow=13, ncol=2)
+print(mat_1)
+# transpose matrix
+mat_1t<-t(mat_1)
+print(mat_1t)
+# sum and mean of first and last row
+sum(mat_1t[1,])
+mean(mat_1t[1,])
+sum(mat_1t[2,])
+mean(mat_1t[2,])
+# eigen() function
+e_values<-eigen(mat_1t)
+print(e_values)
+values<-e_values$values
+print(values)
+vectors<-e_values$vectors
+print(vectors)
+# what kind of numbers or these
+typeof(values)
+typeof(vectors)
+```
+
+# Question Two
+```{r}
+
+```
