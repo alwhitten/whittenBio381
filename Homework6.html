@@ -381,6 +381,8 @@ summary {
 
 <div id="question-one" class="section level1">
 <h1>Question One</h1>
+<div id="matrix" class="section level2">
+<h2>Matrix</h2>
 <pre class="r"><code># Vector of a single integer between 3 and 10
 n_dims&lt;-runif(1,min=3,max=10)
 print(n_dims)
@@ -411,8 +413,184 @@ print(vectors)
 typeof(values)
 typeof(vectors)</code></pre>
 </div>
+</div>
 <div id="question-two" class="section level1">
 <h1>Question Two</h1>
+<div id="creating-a-list" class="section level2">
+<h2>Creating a list</h2>
+<pre class="r"><code># Create a list with three elements
+my_matrix &lt;- matrix(1:16,nrow=4,ncol=4) # matrix
+my_logical&lt;-runif(100) &gt; 0.5 # Random T/F applied with inequality
+str(my_logical)</code></pre>
+<pre><code>##  logi [1:100] TRUE TRUE TRUE TRUE TRUE TRUE ...</code></pre>
+<pre class="r"><code>my_letters &lt;-sample(letters[1:26])
+print(my_letters)</code></pre>
+<pre><code>##  [1] &quot;g&quot; &quot;p&quot; &quot;w&quot; &quot;j&quot; &quot;l&quot; &quot;c&quot; &quot;t&quot; &quot;f&quot; &quot;i&quot; &quot;k&quot; &quot;u&quot; &quot;d&quot; &quot;v&quot; &quot;h&quot; &quot;o&quot; &quot;q&quot; &quot;b&quot; &quot;n&quot; &quot;a&quot;
+## [20] &quot;r&quot; &quot;z&quot; &quot;m&quot; &quot;x&quot; &quot;y&quot; &quot;e&quot; &quot;s&quot;</code></pre>
+<pre class="r"><code>list1&lt;-list(my_matrix,my_logical,my_letters)
+print(list1)</code></pre>
+<pre><code>## [[1]]
+##      [,1] [,2] [,3] [,4]
+## [1,]    1    5    9   13
+## [2,]    2    6   10   14
+## [3,]    3    7   11   15
+## [4,]    4    8   12   16
+## 
+## [[2]]
+##   [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE  TRUE
+##  [13] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE
+##  [25]  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE  TRUE
+##  [37]  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE
+##  [49]  TRUE  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE  TRUE
+##  [61]  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE
+##  [73] FALSE  TRUE  TRUE FALSE FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE FALSE
+##  [85] FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE
+##  [97] FALSE  TRUE  TRUE FALSE
+## 
+## [[3]]
+##  [1] &quot;g&quot; &quot;p&quot; &quot;w&quot; &quot;j&quot; &quot;l&quot; &quot;c&quot; &quot;t&quot; &quot;f&quot; &quot;i&quot; &quot;k&quot; &quot;u&quot; &quot;d&quot; &quot;v&quot; &quot;h&quot; &quot;o&quot; &quot;q&quot; &quot;b&quot; &quot;n&quot; &quot;a&quot;
+## [20] &quot;r&quot; &quot;z&quot; &quot;m&quot; &quot;x&quot; &quot;y&quot; &quot;e&quot; &quot;s&quot;</code></pre>
+<pre class="r"><code># selecting these elements from first list
+list2&lt;-list(my_matrix[2,2],my_logical[2],my_letters[2])
+print(list2)</code></pre>
+<pre><code>## [[1]]
+## [1] 6
+## 
+## [[2]]
+## [1] TRUE
+## 
+## [[3]]
+## [1] &quot;p&quot;</code></pre>
+<pre class="r"><code># what are the underlying element types of each selected
+typeof(list2)</code></pre>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<pre class="r"><code>typeof(list2[[1]]) #integer</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<pre class="r"><code>typeof(list2[[2]]) #logical</code></pre>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<pre class="r"><code>typeof(list2[[3]]) #character</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code># Combine underlying element of different types into one atomic vector with c()
+new_vec &lt;- c(list2[[1]], list2[[2]], list2[[3]])
+new_vec</code></pre>
+<pre><code>## [1] &quot;6&quot;    &quot;TRUE&quot; &quot;p&quot;</code></pre>
+<pre class="r"><code>typeof(new_vec) </code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+</div>
+</div>
+<div id="question-three" class="section level1">
+<h1>Question Three</h1>
+<div id="data-frame-of-two-variables-i.e.-columns-and-26-cases-i.e.-rows" class="section level2">
+<h2>Data Frame of two variables (i.e., columns) and 26 cases (i.e., rows)</h2>
+<pre class="r"><code># variable one
+my_unis&lt;-runif(26,min=0, max=10)
+# variable two
+my_letters&lt;-sample(LETTERS[1:26])
+d_frame &lt;- data.frame(my_unis, my_letters)
+print(d_frame)</code></pre>
+<pre><code>##      my_unis my_letters
+## 1  7.3237816          E
+## 2  7.8342722          Y
+## 3  0.4037538          I
+## 4  6.5983488          T
+## 5  4.4128969          O
+## 6  6.4772512          F
+## 7  1.8088270          M
+## 8  7.9922242          P
+## 9  8.6669285          J
+## 10 9.4992540          U
+## 11 4.6513892          Z
+## 12 5.9962612          A
+## 13 4.4620162          S
+## 14 2.5846492          K
+## 15 5.5427556          B
+## 16 7.9423850          Q
+## 17 5.4388549          D
+## 18 9.8345231          H
+## 19 8.7166041          C
+## 20 6.8110942          V
+## 21 3.1977727          W
+## 22 6.4893476          X
+## 23 6.2506294          L
+## 24 6.3982535          G
+## 25 0.4574073          N
+## 26 0.2374204          R</code></pre>
+<pre class="r"><code># randomly place 4 NAs in column 1
+d_frame[sample(1:26,4), 1] &lt;- NA
+print(d_frame)</code></pre>
+<pre><code>##      my_unis my_letters
+## 1  7.3237816          E
+## 2  7.8342722          Y
+## 3         NA          I
+## 4  6.5983488          T
+## 5  4.4128969          O
+## 6  6.4772512          F
+## 7  1.8088270          M
+## 8  7.9922242          P
+## 9  8.6669285          J
+## 10 9.4992540          U
+## 11 4.6513892          Z
+## 12 5.9962612          A
+## 13 4.4620162          S
+## 14 2.5846492          K
+## 15        NA          B
+## 16 7.9423850          Q
+## 17 5.4388549          D
+## 18 9.8345231          H
+## 19 8.7166041          C
+## 20        NA          V
+## 21 3.1977727          W
+## 22        NA          X
+## 23 6.2506294          L
+## 24 6.3982535          G
+## 25 0.4574073          N
+## 26 0.2374204          R</code></pre>
+<pre class="r"><code># Identify which rows have NAs
+which(!complete.cases(d_frame))</code></pre>
+<pre><code>## [1]  3 15 20 22</code></pre>
+<pre class="r"><code># sort second variable in alphabetical order
+library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>d_frame&lt;-d_frame %&gt;% arrange(my_letters, decreasing=FALSE)
+print(d_frame)</code></pre>
+<pre><code>##      my_unis my_letters
+## 1  5.9962612          A
+## 2         NA          B
+## 3  8.7166041          C
+## 4  5.4388549          D
+## 5  7.3237816          E
+## 6  6.4772512          F
+## 7  6.3982535          G
+## 8  9.8345231          H
+## 9         NA          I
+## 10 8.6669285          J
+## 11 2.5846492          K
+## 12 6.2506294          L
+## 13 1.8088270          M
+## 14 0.4574073          N
+## 15 4.4128969          O
+## 16 7.9922242          P
+## 17 7.9423850          Q
+## 18 0.2374204          R
+## 19 4.4620162          S
+## 20 6.5983488          T
+## 21 9.4992540          U
+## 22        NA          V
+## 23 3.1977727          W
+## 24        NA          X
+## 25 7.8342722          Y
+## 26 4.6513892          Z</code></pre>
+<pre class="r"><code># calculate mean of variable one removing NAs
+mean(d_frame$my_unis, na.rm=TRUE)</code></pre>
+<pre><code>## [1] 5.762816</code></pre>
+</div>
 </div>
 
 

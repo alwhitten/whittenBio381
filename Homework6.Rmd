@@ -5,6 +5,7 @@ date: "4/8/2021"
 output: html_document
 ---
 #  Question One
+## Matrix 
 ```{r,eval=FALSE}
 # Vector of a single integer between 3 and 10
 n_dims<-runif(1,min=3,max=10)
@@ -37,7 +38,55 @@ typeof(values)
 typeof(vectors)
 ```
 
-# Question Two
-```{r}
 
+# Question Two
+## Creating a list
+```{r}
+# Create a list with three elements
+my_matrix <- matrix(1:16,nrow=4,ncol=4) # matrix
+my_logical<-runif(100) > 0.5 # Random T/F applied with inequality
+str(my_logical)
+my_letters <-sample(letters[1:26])
+print(my_letters)
+list1<-list(my_matrix,my_logical,my_letters)
+print(list1)
+
+# selecting these elements from first list
+list2<-list(my_matrix[2,2],my_logical[2],my_letters[2])
+print(list2)
+
+# what are the underlying element types of each selected
+typeof(list2)
+typeof(list2[[1]]) #integer
+typeof(list2[[2]]) #logical
+typeof(list2[[3]]) #character
+
+# Combine underlying element of different types into one atomic vector with c()
+new_vec <- c(list2[[1]], list2[[2]], list2[[3]])
+new_vec
+typeof(new_vec) 
+```
+
+
+# Question Three
+## Data Frame of two variables (i.e., columns) and 26 cases (i.e., rows)
+```{r}
+# variable one
+my_unis<-runif(26,min=0, max=10)
+# variable two
+my_letters<-sample(LETTERS[1:26])
+d_frame <- data.frame(my_unis, my_letters)
+print(d_frame)
+# randomly place 4 NAs in column 1
+d_frame[sample(1:26,4), 1] <- NA
+print(d_frame)
+# Identify which rows have NAs
+which(!complete.cases(d_frame))
+# sort second variable in alphabetical order
+library(dplyr)
+d_frame<-d_frame %>% arrange(my_letters, decreasing=FALSE)
+print(d_frame)
+
+# calculate mean of variable one removing NAs
+mean(d_frame$my_unis, na.rm=TRUE)
 ```
