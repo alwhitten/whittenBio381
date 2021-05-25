@@ -1,0 +1,136 @@
+---
+title: "Homework 8: Fake data"
+author: "AWhitten"
+date: "5/25/2021"
+output: html_document
+---
+# Data parameters
+I chose to calculate my parameters (n, mean, and sd) from an existing one year dataset using bluegill lengths from the three pools that make up the upper Illinois River.  
+```{r}
+# Library -------------------------------
+library(dplyr)
+library(ggplot2)
+# DataSet -------------------------------
+my_data <- read.table(file="C:/Users/Kris/Desktop/Bio381Scripting/blg.csv", header=TRUE,sep=",",comment.char="#") 
+str(my_data)
+
+# Extract Data Needed -------------------------------
+starvedR<-my_data %>% dplyr:: filter(reach == "I05") 
+head(starvedR)
+sr_mean <- mean(starvedR$length)
+sr_sd <- sd(starvedR$length)
+sr_cout <- sum(starvedR$count)
+
+Mars<-my_data %>% dplyr:: filter(reach == "I04") 
+head(Mars)
+ma_mean <- mean(Mars$length)
+ma_sd <- sd(Mars$length)
+ma_cout <- sum(Mars$count)
+
+DresdenI<-my_data %>% dplyr:: filter(reach == "I03") 
+head(DresdenI)
+di_mean <- mean(DresdenI$length)
+di_sd <- sd(DresdenI$length)
+di_cout <- sum(DresdenI$count)
+```
+
+# Fake Data
+Using identified parameters create a fake dataset using a random normal distribution looking at the differences in bluegill lengths in the upper three pools of the upper Illinois River. 
+```{r}
+# Creating Random data-------------------------------
+# set for each pool of the upper illinois river 
+star<- rnorm(n = 100, mean =sr_mean, sd = sr_sd)
+mars <- rnorm(n=100, mean = ma_mean, sd = ma_sd)
+dres <- rnorm(n= 100, mean = di_mean, sd = di_sd)
+# organize dataframe-------------------------------
+upperR <- data.frame(ID=1:300,c(star,mars,dres), Treatment = c(rep("starved",100), rep("marseilles", 100), rep("dresden", 100)))
+colnames(upperR) [2] <- ("length")
+str(upperR)
+
+# Stats- ANOVA -------------------------------
+stats <- aov(length~Treatment, data = upperR)
+stat_sum <- summary(stats)
+print(stat_sum)
+
+# Results boxplot -------------------------------
+ano_plot <-ggplot(stats) + aes(x=Treatment, y=length) + geom_boxplot()
+print(ano_plot)
+```
+
+# Run Again
+Look at differences when run another set of fake data. 
+```{r}
+########################
+# Run Again -Creating Random data-------------------------------
+# set for each pool of the upper illinois river 
+star<- rnorm(n = 100, mean =sr_mean, sd = sr_sd)
+mars <- rnorm(n=100, mean = ma_mean, sd = ma_sd)
+dres <- rnorm(n= 100, mean = di_mean, sd = di_sd)
+# organize dataframe-------------------------------
+upperR <- data.frame(ID=1:300,c(star,mars,dres), Treatment = c(rep("starved",100), rep("marseilles", 100), rep("dresden", 100)))
+colnames(upperR) [2] <- ("length")
+str(upperR)
+
+# Stats- ANOVA -------------------------------
+stats <- aov(length~Treatment, data = upperR)
+stat_sum <- summary(stats)
+print(stat_sum)
+
+# Results boxplot -------------------------------
+ano_plot <-ggplot(stats) + aes(x=Treatment, y=length) + geom_boxplot()
+print(ano_plot)
+```
+
+# Minimum Sample Size
+Manipulate the data to determine what the minimum sample size is to still generate a significant result.
+```{r}
+########################
+# Minimum Sample size -------------------------------
+# how small can the sample size be to get a significant difference between treatments?
+# Smallest sample size with sig difference was 20/treatment
+# Run Again -Creating Random data-------------------------------
+# set for each pool of the upper illinois river 
+star<- rnorm(n = 20, mean =sr_mean, sd = sr_sd)
+mars <- rnorm(n=20, mean = ma_mean, sd = ma_sd)
+dres <- rnorm(n= 20, mean = di_mean, sd = di_sd)
+# organize dataframe-------------------------------
+upperR <- data.frame(ID=1:60,c(star,mars,dres), Treatment = c(rep("starved",20), rep("marseilles", 20), rep("dresden", 20)))
+colnames(upperR) [2] <- ("length")
+str(upperR)
+
+# Stats- ANOVA -------------------------------
+stats <- aov(length~Treatment, data = upperR)
+stat_sum <- summary(stats)
+print(stat_sum)
+
+# Results boxplot -------------------------------
+ano_plot <-ggplot(stats) + aes(x=Treatment, y=length) + geom_boxplot()
+print(ano_plot)
+```
+
+# Effect Size
+Adjust the means to look at effect size
+```{r}
+########################
+# Adjust means- Effect Size -------------------------------
+# mean for Dresden has to be at least 91 for the ANOVA to keep its significance. Starved Rock and Marseilles are not different at all.
+
+# Run Again -Creating Random data-------------------------------
+# set for each pool of the upper illinois river 
+star<- rnorm(n = 100, mean =79, sd = sr_sd) # original 79
+mars <- rnorm(n=100, mean = 76, sd = ma_sd) # original 76
+dres <- rnorm(n= 100, mean = 91, sd = di_sd) # original 116
+# organize dataframe-------------------------------
+upperR <- data.frame(ID=1:300,c(star,mars,dres), Treatment = c(rep("starved",100), rep("marseilles", 100), rep("dresden", 100)))
+colnames(upperR) [2] <- ("length")
+str(upperR)
+
+# Stats- ANOVA -------------------------------
+stats <- aov(length~Treatment, data = upperR)
+stat_sum <- summary(stats)
+print(stat_sum)
+
+# Results boxplot -------------------------------
+ano_plot <-ggplot(stats) + aes(x=Treatment, y=length) + geom_boxplot()
+print(ano_plot)
+```

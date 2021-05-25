@@ -15,16 +15,18 @@ output:
 
 Homework Week 1 *Nothing Due*
 
-[Homework Week 2](Homework2.html): First .html
+[Homework 2](Homework2.html): First .html
 
-[Homework Week 3](Homework3.html): Regular Expressions 
+[Homework 3](Homework3.html): Regular Expressions 
 
-Homework Week 4: [Typora](file:///C:/Users/Kris/Documents/Computational%20Biology_R/Homeworks/HW4_Typora_Webpage.html),
+Homework 4: [Typora](file:///C:/Users/Kris/Documents/Computational%20Biology_R/Homeworks/HW4_Typora_Webpage.html),
 [LaTeX Letter](Letter_Template.pdf), and
 [LaTeX Beammer Presentation](BeamerSlideShow.pdf)
 
-[Homework Week 5](Homework5_Page.html): Atomic Vectors 
+[Homework 5](Homework5_Page.html): Atomic Vectors 
 
-[Homework Week 6](Homework6.html): Matrix, Lists, and Data Frames
+[Homework 6](Homework6.html): Matrix, Lists, and Data Frames
 
-[Homework Week 7](Homework7.html): Simulating and Fitting Data Distributions
+[Homework 7](Homework7.html): Simulating and Fitting Data Distributions
+
+[Homework 8](Homework8.html): Fake Data - Explore Hypotheses
